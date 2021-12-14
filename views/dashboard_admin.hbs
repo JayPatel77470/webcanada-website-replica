@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{>bootstrap}}
+    <style>
+         header{
+          padding: 10px;
+       }
+        .link{
+          font-weight: bolder;
+          color: black;
+          font-size: 15px;
+      }
+        .active{
+            background-color: #EEEEEE;
+            color: black;
+            }
+         .button{
+            background: #fa2509;
+            padding: 10px;
+            font-size: 25px;
+            color: white;
+            width: 20%;
+        }
+        .button:hover{
+             background: #770101;
+             color: white;
+       }
+    </style>
+</head>
+<body> 
+    <!--header-->
+    <div>
+      {{>header}}
+    </div>
+
+    <div class="container">
+       {{#if data.email}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success">
+                    WELCOME Admin<br>
+                    Full Name: {{data.username}}<br>
+                    Email: {{data.email}}
+                </div>
+            </div>
+        </div>
+        <a href="/shoppingcart"><button class="button btn btn-lg btn-default">Cart</button></a>
+    {{/if}}
+
+     <form method="get" action="logout" role="aigninform">
+        <input type="submit" class="button btn btn-lg btn-default" value="Log Out">
+    </form>
+    </div>
+   
+</body>
+</html>

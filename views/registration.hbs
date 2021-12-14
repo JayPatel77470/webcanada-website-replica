@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{>bootstrap}}
+    <style>
+        header{
+          padding: 10px;
+       }
+       .link{
+            font-weight: bolder;
+            color: black;
+            font-size: 15px;
+        }
+      .active{
+            background-color: #EEEEEE;
+            color: black;
+            }
+        .active a{
+            color: black;
+        }
+         body{
+            background: #3d09fa linear-gradient(40deg,#24a9c0 0,#092dfa 100%) fixed !important;
+            background-size: cover;
+
+        }
+        .col{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .register a img{
+            padding-top: 20px;
+        }
+        .register{
+            background-color: white;
+            padding: 50px;
+            
+        }
+        .newuser{
+            padding-top: 10px;
+        }
+        .title{
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .title span{
+            position: relative;
+            top: -20px;
+            padding: 15px;
+            background-color: white;
+            font-size: medium;
+        }
+        .inputfield{
+            padding-left: 30px;
+        }
+        .login{
+            font-size: medium;
+        }.button{
+            background: #fa2509;
+            padding: 10px;
+            font-size: 25px;
+            color: white;
+            width: 100%;
+        }
+        .button:hover{
+             background: #770101;
+             color: white;
+       }
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div>
+      {{>header}}
+    </div>
+
+   <div class="register container text-center">
+    <form method="post" class="" action="registration_post" role="registerationform" name="registerationform" id="registerationform" enctype="application/x-www-form-urlencoded">
+       <a href="https://whc.ca"><img src="https://clients.whc.ca/templates/hwc-six/img/picto-whc.svg" alt=""></a>
+       <h2>Create an Account</h2><br><br>
+
+       <div class="newuser">
+             <div class="title">
+                 <span>Personal Information</span>
+             </div>
+
+             <div class="row">
+                <div class="col col-lg-6 col-sm-12">
+                    <div>
+                        {{#if data.error.firstname}}
+                        <div class="alert alert-warning">
+                            {{data.error.firstname}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="firstname" id="firstname" class="inputfield form-control" placeholder="First Name" value="{{#if data.values.firstname}}{{data.values.firstname}}{{/if}}">
+                    </div>
+                </div>
+
+                <div class="col col-lg-6 col-sm-12">
+                    <div>
+                        {{#if data.error.lastname}}
+                        <div class="alert alert-warning">
+                            {{data.error.lastname}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="lastname" id="lastname" class="inputfield form-control" placeholder="Last Name" value="{{#if data.values.lastname}}{{data.values.lastname}}{{/if}}">
+                    </div>
+                </div>  
+             </div>
+                <div class="row">
+                <div class="col col-lg-6">
+                    <div>
+                        {{#if data.error.email}}
+                        <div class="alert alert-warning">
+                            {{data.error.email}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="email" id="email" class="inputfield form-control" placeholder="Email" value="{{#if data.values.email}}{{data.values.email}}{{/if}}">
+                      
+                    </div>
+                </div>
+
+                <div class="col col-lg-6">
+                    <div>
+                        {{#if data.error.phone}}
+                        <div class="alert alert-warning">
+                            {{data.error.phone}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="phone" id="phone" class="inputfield form-control" placeholder="Phone Number" value="{{#if data.values.phone}}{{data.values.phone}}{{/if}}">
+                       
+                    </div>
+                </div>
+             </div>
+             <div class="title">
+                <span>Billing Address</span>
+            </div>
+             <div class="row">
+                <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="company" id="company" class="inputfield form-control" placeholder="Company Name (Optional)">
+                    </div>
+                </div>
+                <div class="col col-lg-12">
+                    <div>
+                        {{#if data.error.address}}
+                            <div class="alert alert-warning">
+                                {{data.error.address}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="address" id="address" class="inputfield form-control" placeholder="Street Address" value="{{#if data.values.address}}{{data.values.address}}{{/if}}">
+                       
+                    </div>
+                </div>
+                 <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="address2" id="address2" class="inputfield form-control" placeholder="Street Address 2">
+                    </div>
+                </div>
+                <div class="col col-lg-4">
+                    <div>
+                        {{#if data.error.city}}
+                            <div class="alert alert-warning">
+                                {{data.error.city}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="city" id="city" class="inputfield form-control" placeholder="City" value="{{#if data.values.city}}{{data.values.city}}{{/if}}">
+                        
+                    </div>
+                </div>
+                <div class="col col-lg-5">
+                    <div>
+                        {{#if data.error.state}}
+                            <div class="alert alert-warning">
+                                {{data.error.state}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="state" id="state" class="inputfield form-control" placeholder="State" value="{{#if data.values.state}}{{data.values.state}}{{/if}}">
+                       
+                    </div>
+                </div>
+                <div class="col col-lg-3">
+                    <div>
+                        {{#if data.error.postcode}}
+                            <div class="alert alert-warning">
+                                {{data.error.postcode}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="postcode" id="postcode" class="inputfield form-control" placeholder="Postcode" value="{{#if data.values.postcode}}{{data.values.postcode}}{{/if}}">
+                       
+                    </div>
+                </div>
+                <div class="col col-lg-12">
+                    <div>
+                        {{#if data.error.country}}
+                            <div class="alert alert-warning">
+                                {{data.error.country}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="country" id="country" class="inputfield form-control" placeholder="Canada" value="{{#if data.values.country}}{{data.values.country}}{{/if}}">
+                        
+                    </div>
+                </div>
+                <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="tax" id="tax" class="inputfield form-control" placeholder="Tax ID (Optional)">
+                    </div>
+                </div>   
+             </div>
+             
+             <div class="title">
+                <span>Account Security</span>
+            </div>
+
+
+            <div class="row">
+                <div class="col col-lg-6">
+                    <div>
+                        {{#if data.error.password}}
+                            <div class="alert alert-warning">
+                                {{data.error.password}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="password" id="password" class="inputfield form-control" placeholder="Password" value="{{#if data.values.password}}{{data.values.password}}{{/if}}">
+                       
+                    </div>
+                </div>
+                <div class="col col-lg-6">
+                    <div>
+                        {{#if data.error.confirmpassword}}
+                            <div class="alert alert-warning">
+                                {{data.error.confirmpassword}}
+                            </div>
+                        {{/if}}
+                        <input type="text" name="confirmpassword" id="password" class="inputfield form-control" placeholder="Confirm Password" value="{{#if data.values.confirmpassword}}{{data.values.confirmpassword}}{{/if}}">
+                    </div>
+                </div>    
+             </div>
+             <br><br><br><br>
+             <div class="row">
+                <div class="col col">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="fas fa-exclamation-triangle"></span> &nbsp; Terms of Service</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">      
+                                <label class="checkbox">
+                                    {{#if data.error.checkbox}}
+                                        <div class="alert alert-warning">
+                                            {{data.error.checkbox}}
+                                        </div>
+                                    {{/if}}
+                                    <input type="checkbox" name="terms" class="terms">
+                                    By submitting this order, you agree to the 
+                                    <a href="https://whc.ca/legal/terms-of-service" target="new">Terms of Service</a> 
+                                    and 
+                                    <a href="https://whc.ca/legal/privacy-policy" target="new">Privacy Policy</a>. 
+                                    You agree that WHC will automatically attempt to renew your services prior to 
+                                    their next due date unless you request otherwise from your Client Area.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input class="button btn btn-default btn-lg" type="submit" value="Register">
+        </form>
+        <br><br>
+        <div class="login text-left">
+            Already a client? <a href="login">Log in</a>
+          </div>
+    </div>
+  
+</body>
+</html>

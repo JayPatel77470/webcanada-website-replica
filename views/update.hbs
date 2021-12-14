@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{>bootstrap}}
+    <style>
+        header{
+          padding: 10px;
+       }
+       .link{
+            font-weight: bolder;
+            color: black;
+            font-size: 15px;
+        }
+      .active{
+            background-color: #EEEEEE;
+            color: black;
+            }
+        .active a{
+            color: black;
+        }
+         body{
+            background: #3d09fa linear-gradient(40deg,#24a9c0 0,#092dfa 100%) fixed !important;
+            background-size: cover;
+
+        }
+        .col{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .update a img{
+            padding-top: 20px;
+        }
+        .update{
+            background-color: white;
+            padding: 50px;
+            width: 700px;
+            
+        }
+        .newplan{
+            padding-top: 10px;
+        }
+        .title{
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .title span{
+            position: relative;
+            top: -20px;
+            padding: 15px;
+            background-color: white;
+            font-size: medium;
+        }
+        .inputfield{
+            padding-left: 30px;
+        }
+        .button{
+            background: #fa2509;
+            padding: 10px;
+            font-size: 25px;
+            color: white;
+            width: 100%;
+        }
+        .button:hover{
+             background: #770101;
+             color: white;
+       }
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div>
+      {{>header}}
+    </div>
+
+   <div class="update container text-center">
+    <form method="post" class="" action="updatePlan_post" role="planform" name="planform" id="planform" enctype="multipart/form-data">
+       <a href="https://whc.ca"><img src="https://clients.whc.ca/templates/hwc-six/img/picto-whc.svg" alt=""></a>
+       <h2>Update a plan</h2><br><br>
+       
+       <div class="newplan">
+             <div class="title">
+                 <span>Plan Information</span>
+             </div>
+
+             <div class="row">
+                <div class="col col-sm-12">
+                    <div>
+                        {{#if data.error.name}}
+                        <div class="alert alert-warning">
+                            {{data.error.name}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="name" id="name" class="inputfield form-control" placeholder="Plan Name" value="{{#if data.values.name}}{{data.values.name}}{{/if}}">
+                    </div>
+                </div>
+             </div>
+
+             <div class="row">
+                <div class="col col-sm-12">
+                    <div>
+                        {{#if data.error.price}}
+                        <div class="alert alert-warning">
+                            {{data.error.price}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="price" id="price" class="inputfield form-control" placeholder="Plan Price in CAD" value="{{#if data.values.price}}{{data.values.price}}{{/if}}">
+                    </div>
+                </div>
+             </div>
+             
+                 <div class="row">
+                <div class="col col-sm-12">
+                    <div>
+                        {{#if data.error.desc}}
+                        <div class="alert alert-warning">
+                            {{data.error.desc}}
+                        </div>
+                        {{/if}}
+                        <input type="text" name="desc" id="desc" class="inputfield form-control" placeholder="Plan Package Description" value="{{#if data.values.desc}}{{data.values.desc}}{{/if}}">
+                    </div>
+                </div>
+             </div>
+             <div class="title">
+                <span>Plan Features</span>
+            </div>
+             <div class="row">
+                <div class="col col-sm-12">
+                    <div>
+                        <input type="text" name="performance" id="performance" class="inputfield form-control" placeholder="Performance">
+                    </div>
+                </div>
+                <div class="col col-sm-12">
+                    <div>
+                        <input type="text" name="noOfwebsites" id="noOfwebsites" class="inputfield form-control" placeholder="Number of Websites" >
+                       
+                    </div>
+                </div>
+                 <div class="col col-sm-12">
+                    <div>
+                        <input type="text" name="traffic" id="space&traffic" class="inputfield form-control" placeholder="Amount of Space and Traffic">
+                    </div>
+                </div>
+                <div class="col  col-sm-12">
+                    <div>
+                        <input type="text" name="poweredby" id="poweredby" class="inputfield form-control" placeholder="Powered By" >
+                        
+                    </div>
+                </div>
+                <div class="col col-sm-12">
+                    <div>
+                        <input type="text" name="allinclusive" id="allinclusive" class="inputfield form-control" placeholder="All Inclusive">
+                       
+                    </div>
+                </div>
+                <div class="col col-sm-12">
+                    <div>
+                        <input type="text" name="hostingfeatures" id="hostingfeatures" class="inputfield form-control" placeholder="Hosting Features" >
+                       
+                    </div>
+                </div>
+                <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="sitemigration" id="sitemigration" class="inputfield form-control" placeholder="Site Migration" >
+                        
+                    </div>
+                </div>
+                <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="domain" id="domain" class="inputfield form-control" placeholder="Domain">
+                    </div>
+                </div>   
+             
+             <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="optimization" id="optimization" class="inputfield form-control" placeholder="Optimization">
+                    </div>
+                </div>   
+             <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="features" id="features" class="inputfield form-control" placeholder="Features">
+                    </div>
+                </div>   
+             <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="emailmarketing" id="emailmarketing" class="inputfield form-control" placeholder="Email Marketing">
+                    </div>
+                </div>  
+             <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="certificate" id="certificate" class="inputfield form-control" placeholder="Certificate">
+                    </div>
+                </div>  
+             <div class="col col-lg-12">
+                    <div>
+                        <input type="text" name="ip" id="ip" class="inputfield form-control" placeholder="IP">
+                    </div>
+                </div> 
+             
+               <div class="col col-lg-6">
+                        {{#if data.error.img}}
+                        <div class="alert alert-warning">
+                            {{data.error.img}}
+                        </div>
+                        {{/if}}
+                        <label for="image" style="text-align: left;">Add an image
+                        <input type="file" accept="image/png, image/jpeg, image/gif" name="image" id="image" class="form-control">
+                        </label>
+               </div>
+             <div class="col col-lg-12">
+                    <div>
+                         <label class="checkbox">
+                                    <input type="checkbox" name="mostpopular">
+                                     Most Popular
+                          </label>
+                    </div>
+                </div>
+            </div>
+            <input class="button btn btn-default btn-lg" type="submit" value="Update Plan">
+            </div>
+    </form>
+    
+   </div>
+</body>
+</html>

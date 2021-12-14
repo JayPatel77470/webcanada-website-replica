@@ -1,0 +1,19 @@
+     <header>
+        <div class="container">
+        <nav class="navbar">  
+            <div class="navbar-header">
+            <img src="https://whc.ca/wp-content/themes/whc/css-modules/images/logo_en-normal.svg">
+            </div>
+            <ul class="nav navbar-nav navbar-right" >
+            <li><a href="" class="link">Hosting & Servers</a></li>
+            <li><a href="" class="link">Domain Names</a></li>
+            <li {{#if data.route.plans}} class="active" {{/if}}><a href="plans" class="link">Plans</a></li>
+            <li {{#if data.route.home}} class="active" {{/if}}><a href="home" class="link">Home</a></li>
+            <li {{#if data.route.administration}} class="active" {{/if}}><a href="addPlan" class="link">Add Plan</a></li>
+            <li {{#if data.route.update}} class="active" {{/if}}><a href="updatePlan" class="link">Update Plan</a></li>
+            <li {{#if data.route.registration}} class="active" {{/if}}><a href="registration" class="link">Register</a></li>
+            <li {{#if data.route.login}} class="active" {{/if}}><a href="logout" class="link">login/logout</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>

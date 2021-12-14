@@ -1,0 +1,107 @@
+<div class="plans">  
+     <div class="container text-center">
+            <form action="/shoppingCart" method="post">
+           <div class="row abc">
+                {{#each data}}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 mainpart middle">
+                    {{#if mostPopular}}
+                       <div style="font-size: x-large; color:red"><strong>Most Popular</strong></div>
+                    {{/if}}
+                    <img src={{image}} alt="" class="img-thumbnail">
+                    <h2><b>{{planName}}</b></h2>
+                    <h4>{{planText}}</h4> <br>
+                    As low as<br>
+                    <span class="cost">${{planPrice}}</span>/mo<br><br>
+                      <button type="submit" name="value" class="button btn btn-default btn-lg" value={{planName}}>Add to Cart</button>
+                    <div class="detail">
+                        <ul>
+                            {{#if performance}}
+                             <li>
+                                 <i class="fa fa-tachometer-alt fa-lg"></i>
+                                 <strong>{{performance}}</strong> Performance
+                             </li>
+                             {{/if}}
+                             {{#if noOfWebsites}}
+                             <li>
+                                <i class="fa fa-laptop"></i> 
+                                 <strong>{{noOfWebsites}}</strong> Websites
+                             </li>
+                             {{/if}}
+                             {{#if amountOfSpace}}
+                             <li>
+                                 <i class="fa fa-server"></i>
+                                 <strong>{{amountOfSpace}}</strong>
+                                 Space &amp; Traffic
+                             </li>
+                             {{/if}}
+                             {{#if poweredBy}}
+                             <li>
+                                 <i class="fas fa-leaf" style="color: #28a745"></i> 
+                                 <strong>Powered</strong> by 
+                                 <a href="https://whc.ca/green-hosting/">{{poweredBy}}</a>
+                             </li>
+                             {{/if}}
+                             {{#if Inclusive}}
+                             <li>
+                                 <i class="fa fa-envelope"></i> 
+                                 <strong>All-Inclusive</strong> 
+                                 {{Inclusive}}
+                             </li>
+                             {{/if}}
+                             {{#if hostingFeatures}}
+                             <li>
+                                 <i class="fa fa-cubes"></i> 
+                                 <strong>{{hostingFeatures}}</strong>   Hosting Features
+                             </li>
+                             {{/if}}
+                             {{#if siteMigration}}
+                             <li>
+                                 <i class="fa fa-exchange-alt"></i> 
+                                 <strong>{{siteMigration}}</strong> Site Migration
+                             </li>
+                             {{/if}}
+                             {{#if domain}}
+                             <li>
+                                 <i class="fa fa-globe"></i> 
+                                 <strong>{{domain}}</strong> Domain
+                            </li>
+                            {{/if}}
+                            {{#if optimization}}
+                            <li>
+                                <i class="fab fa-wordpress">
+                                </i> <strong>Optimized</strong> {{optimization}}
+                            </li>
+                            {{/if}}
+                            {{#if features}}
+                            <li>
+                                <i class="fas fa-gem"></i> 
+                                <strong>{{features}}</strong> Features
+                            </li>
+                            {{/if}}
+                            {{#if marketing}}
+                            <li>
+                                <i class="fas fa-paper-plane">                                
+                                </i> <strong>Email Marketing</strong> {{marketing}}
+                            </li>
+                            {{/if}}
+                            {{#if certificate}}
+                            <li>
+                                <i class="fa fa-lock"></i> 
+                                <strong>{{Certificate}}</strong> Certificate
+                            </li>
+                            {{/if}}
+                            {{#if ip}}
+                            <li>
+                               <i class="fa fa-star"></i> 
+                               <strong>{{ip}}</strong> IP
+                           </li>
+                           {{/if}}
+                         </ul>
+                    </div>
+                 </div>
+                 {{/each}}
+           </div>
+           </form>
+        </div>
+     </div>
+     

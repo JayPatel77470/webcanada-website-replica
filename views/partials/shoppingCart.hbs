@@ -1,0 +1,172 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+{{#if data}}
+<form action="/checkout" method="post">
+<div class="row Main">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 order1">
+        <h3><b>Web Hosting: <span id="name">{{data.PlanName}}</span></b></h3>
+        <div class="row innerRow">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 card 1month" >
+                   <div class="card-body">
+                        1 Month<h3><b>$<span id="RegularPrice">{{data.PlanPrice}}</span></b></h3><b>/month</b>
+                   </div>
+            </div>
+             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 card 12month">
+                   <div class="card-body">
+                        12 Month<h3><b>$<span id="12MonthPrice">{{data.oneYearPlanPrice}}</span></b></h3><b>/month</b><br><br>
+                        <button class="SmallButton" disabled><b>SAVE 37%</b></button>
+                          <div><small><strike>${{data.PlanPrice}}</strike></small></div>
+                   </div>
+            </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 card 24month">
+                   <div class="card-body">
+                        24 Month<h3><b>$<span id="24MonthPrice">{{data.twoYearPlanPrice}}</span></b></h3><b>/month</b><br><br>
+                          <button class="SmallButton" disabled><b>SAVE 40%</b></button>
+                          <div><small><strike>${{data.PlanPrice}}</strike></small></div>
+                   </div>
+            </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 card 36month">
+                   <div class="card-body">
+                        36 Month<h3><b>$<span id="36MonthPrice">{{data.threeYearPlanPrice}}</span></b></h3><b>/month</b><br><br>
+                          <button class="SmallButton" disabled><b>SAVE 43%</b></button>
+                          <div><small><strike>${{data.PlanPrice}}</strike></small></div>
+                   </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 order2">
+             <h3><b>Order Summary</b></h3>
+             <div class="row innerRow2">
+             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 innerRow3">
+                     <div class="pull-left"><b>{{data.PlanName}}</b><br><span id="noOfMonths"></span> months</div>
+                     <div class="pull-right">$<span id="TotalPrice"></span></div>
+             </div>
+             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 innerRow3">
+                 <div class="pull-left">Total</div>
+                 <div class="pull-right"><b>$<span id="FinalPrice"></span></b></div>
+             </div>
+            </div>
+            <div><small>All prices are in CAD</small></div>
+           
+           <input type="hidden"  id="planName" name="planName" value={{data.PlanName}}>
+           <input type="hidden" id="planPrice" name="planPrice">
+           <input type="hidden" id="planDuration" name="planDuration">
+           <input type="submit" class="button btn btn-lg btn-default" value="Checkout Now">
+    </div>
+</div>
+</form>
+<script>
+    let price;
+    
+   $(".1month").click(function(e){
+        let price = document.getElementById("RegularPrice").innerHTML;
+        
+       $(".12month").removeClass("selected");
+        $(".24month").removeClass("selected");
+         $(".36month").removeClass("selected");
+       $(this).addClass("selected");
+      e.stopPropagation(); 
+         
+      fetch("/checkout", {
+       method: "POST",
+       headers: {"content-type": "application/json"},
+       body: JSON.stringify(price)
+   }).then((res) => {
+       return res.text();
+       console.log(res);    
+       }).then((text) => {
+        document.getElementById("noOfMonths").innerHTML = 1;
+        document.getElementById("TotalPrice").innerHTML = price;
+        document.getElementById("FinalPrice").innerHTML = price;
+        document.getElementById("planPrice").setAttribute('value', price);
+        document.getElementById("planDuration").setAttribute('value',  1);
+       });
+   });
+
+
+
+
+   $(".12month").click(function(e){
+         let price = document.getElementById("12MonthPrice").innerHTML;
+  
+      
+        $(".1month").removeClass("selected");
+        $(".24month").removeClass("selected");
+         $(".36month").removeClass("selected");
+       $(this).addClass("selected");
+       e.stopPropagation();
+       
+
+      fetch("/checkout", {
+       method: "POST",
+       body: JSON.stringify(price)
+   }).then((res) => {
+       return res.text();
+       }).then((text) => {
+        document.getElementById("noOfMonths").innerHTML = 12;
+        document.getElementById("TotalPrice").innerHTML = price;
+        document.getElementById("FinalPrice").innerHTML = price;
+          document.getElementById("planPrice").setAttribute('value', price);
+        document.getElementById("planDuration").setAttribute('value',  12);
+       });
+   });
+
+
+
+    $(".24month").click(function(e){
+        let price = document.getElementById("24MonthPrice").innerHTML;
+         price = price;
+        $(".1month").removeClass("selected");
+        $(".12month").removeClass("selected");
+         $(".36month").removeClass("selected");
+       $(this).addClass("selected");
+       e.stopPropagation(); 
+       
+      fetch("/checkout", {
+       method: "POST",
+       body: JSON.stringify(price)
+   }).then((res) => {
+       return res.text();
+       }).then((text) => {
+        document.getElementById("noOfMonths").innerHTML = 24;
+        document.getElementById("TotalPrice").innerHTML = price;
+        document.getElementById("FinalPrice").innerHTML = price;
+        document.getElementById("planPrice").setAttribute('value', price);
+        document.getElementById("planDuration").setAttribute('value',  24);
+       });
+   });
+
+
+
+    $(".36month").click(function(e){
+        let price = document.getElementById("36MonthPrice").innerHTML;
+         price = price;
+        $(".1month").removeClass("selected");
+        $(".24month").removeClass("selected");
+         $(".12month").removeClass("selected");
+       $(this).addClass("selected");
+       e.stopPropagation(); 
+       
+      fetch("/checkout", {
+       method: "POST",
+       body: JSON.stringify(price)
+   }).then((res) => {
+       return res.text();
+       }).then((text) => {
+        document.getElementById("noOfMonths").innerHTML = 36;
+        document.getElementById("TotalPrice").innerHTML = price;
+        document.getElementById("FinalPrice").innerHTML = price;
+        document.getElementById("planPrice").setAttribute('value', price);
+        document.getElementById("planDuration").setAttribute('value',  36);
+       });
+   });
+   
+</script>
+{{else}}
+<script>alert("Shopping cart is empty. Try adding some plans");
+    window.location.href = "/plans";
+</script>
+{{/if}}
+

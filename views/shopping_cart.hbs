@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  {{>bootstrap}}
+  <title>Shopping Cart</title>
+  <style>
+    header{
+          padding: 10px;
+       }
+    .link{
+          font-weight: bolder;
+          color: black;
+          font-size: 15px;
+         }
+    .active{
+            background-color: #EEEEEE;
+            color: black;
+            }
+    .order{
+        background-color: #E4E7F1;
+    }
+    .Main{
+          padding: 10px;
+    }
+    .order1{
+        border: hidden;
+        border-radius: 4px;
+        background-color: white;
+        margin: 10px;
+    }
+    .order2{
+        border: hidden;
+        border-radius: 4px;
+        background-color: white;
+        margin-left: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .innerRow{
+        padding: 10px;
+    }
+    .card{
+        width: 150px;
+        text-align: center;
+        margin: 15px;
+        border: #E4E7F1;
+        border-style:solid;
+        border-width: 1px;
+        border-radius: 4px;
+        height: 200px;
+    }
+    .selected{
+        background-color: #fa2509;
+        color: white;
+    }
+    .card-body{
+        padding: 10px;
+    }
+    .card:hover{
+        background: #fa2509;
+        color: white;
+    }
+    .innerRow2{
+        padding: 10px;
+        
+        margin-top: 25px;
+    }
+    .innerRow3{
+        padding: 20px;
+        border: #E4E7F1;
+        border-style:solid;
+        border-width: 1px;
+
+    }
+    .heading{
+        margin: 10px;
+    }
+    .button{
+            background: #fa2509;
+            padding: 10px;
+            font-size: 25px;
+            color: white;
+            width: 100%;
+            margin-bottom: 20px;
+    }
+    .button:hover{
+             background: #770101;
+             color: white;
+    }
+    .SmallButton{
+        background-color: #FFC107;
+    }
+    
+  </style>
+  
+</head>
+<body>
+  <!--Header-->
+  <div>
+      {{>header}}
+  </div>
+  <div class="container order">
+       {{>shoppingCart}}
+       
+  </div>
+</body>
+</html>

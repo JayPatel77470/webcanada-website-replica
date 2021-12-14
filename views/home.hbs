@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  {{>bootstrap}}
+  <title>Document</title>
+  <style>
+    header{
+          padding: 10px;
+       }
+    .link{
+          font-weight: bolder;
+          color: black;
+          font-size: 15px;
+         }
+    .active{
+            background-color: #EEEEEE;
+            color: black;
+            }
+    .searchbar{
+      padding-right: 0%;
+    }
+    .searchbutton{
+      padding-left: 0%;
+    }
+    .searchicon{
+            background: #fa2509;
+            color: white;
+    }
+    .searchicon:hover{
+      background: #770101;
+      color: white;
+    }
+    .grid{
+      padding-top: 10px;
+    }
+    .button{
+            background: #fa2509;
+            color: white;
+            width: 170px;
+            
+    }
+    .button:hover{
+      background: #770101;
+      color: white;
+    }
+    .fit {
+    max-width: 100%;
+    max-height: 100%;
+   }
+   .color{
+     color: #C32127;
+   }
+   .content{
+     padding-top: 70px;
+     padding-bottom: 70px;
+   }
+   .align{
+     text-align: center;
+   }
+   .prefooter{
+     background: #f34646;
+     color: white;
+     font-size: 40px;
+     font-weight: 500;
+     padding: 80px 0;
+   }
+   .postfooter{
+     background: #611508;
+     color: white;
+     padding: 40px 40px 20px 40px;
+   }
+   .postfooter ul{
+     list-style: none;
+     padding-left: 0;
+   }
+   .postfooter ul li:first-child{
+    font-weight: 600;
+    font-size: medium;
+    color: white;
+    margin-bottom: 10px;
+   }
+   .postfooter ul li a{
+     color: #fa9999;
+     font-size: small;
+     font-weight: lighter;
+   }
+
+   .follow a{
+     padding-right: 20px;
+     padding-left: 20px;
+   }
+   
+   .facebook{
+     color: #3e5b94;
+   }
+   .twitter{
+     color: #57acea;
+   }
+   .linkedin{
+     color: #0f78b1;
+   }
+   .instagram{
+     color: purple;
+   }
+   .youtube{
+     color:red
+   }
+  </style>
+  
+</head>
+<body>
+  <!--Header-->
+  <div>
+      {{>header}}
+  </div>
+ 
+  
+  <!--Search Section-->
+  <div class="container">
+    <div class="row">
+      <form class="input">
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7  searchbar">
+        <input type="text" class="form-control" placeholder="Find your perfect domain" name="searchbar" id="searchbar">
+      </div>
+      <div class="searchbutton">
+        <span>
+          <a href="" class="searchicon btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></a>
+        </span>
+      </div>
+    </form>
+    </div>
+  </div>
+   <br>
+  <!--Hero Section-->
+  <div>
+    <img class="fit" src="red.jpg" alt="">
+  </div>
+  
+  <!--Content Section-->
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align grid">
+            <i class="fas fa-server fa-6x color"></i>
+            <h3><b>Web Hosting<b></h3>
+              <h4>Fast and unlimited web hosting for your site</h4>
+              <a href="plans" class="button btn btn-default">Get Hosting</a>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align grid">
+          <i class="fas fa-tasks fa-6x color "></i>
+          <h3><b>Best Plans<b></h3>
+            <h4>Get plans that suits your need for a great price</h4>
+            <a href="plans" class="button btn btn-default">View Plans</a>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align grid">
+          <i class="fas fa-at fa-6x color "></i>
+          <h3><b>Domains<b></h3>
+            <h4>Get your own customised domains here</h4>
+            <a href="" class="button btn btn-default">Search Domains</a>
+          </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align grid">
+          <i class="fab fa-wordpress fa-6x color "></i>
+          <h3><b>WordPress<b></h3>
+            <h4>Manage your wordpress website easily</h4>
+            <a href="" class="button btn btn-default">Get WordPress</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <div>
+    {{>footer}}
+  </div>
+</body>
+</html>
